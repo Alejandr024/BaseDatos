@@ -1,0 +1,101 @@
+curso,idAsignatura,nombre,cuatrimestre,creditos,caracter,coordinador
+1,AS001,Algebra lineal,2,6,obligatoria,PR001
+1,AS002,Análisis exploratorio de datos,1,6,obligatoria,PR002
+1,AS003,Análisis matemático,1,6,obligatoria,PR003
+1,AS004,Fundamentos de computadores y sistemas operativos,2,6,obligatoria,PR004
+1,AS005,Fundamentos de organización de empresas,1,6,obligatoria,PR005
+1,AS006,Fundamentos de programación,1,6,obligatoria,PR004
+1,AS007,Matemáticas discretas,1,6,obligatoria,PR003
+1,AS008,Modelos estadísticos para la toma de decisiones I,2,6,obligatoria,PR008
+1,AS009,Programación,2,6,obligatoria,PR004
+1,AS010,Proyecto I. Comprensión de datos,2,6,obligatoria,PR002
+2,AS011,Adquisición y transmisión de datos,1,6,obligatoria,PR004
+2,AS012,Bases de datos,1,6,obligatoria,PR002
+2,AS013,Comportamiento económico y social,1,6,obligatoria,PR006
+2,AS014,Estructuras de datos,1,6,obligatoria,PR002
+2,AS015,Gestión de datos,2,6,obligatoria,PR002
+2,AS016,Modelado discreto y teoría de la información,2,6,obligatoria,PR007
+2,AS017,Modelos descriptivos y predictivos I,2,6,obligatoria,PR008
+2,AS018,Modelos estadísticos para la toma de decisiones II,1,6,obligatoria,PR008
+2,AS019,Proyecto II. Integración y preparación de datos,2,6,obligatoria,PR009
+2,AS020,Seguridad de los datos,2,6,obligatoria,PR004
+3,AS021,Algorítmica,2,6,obligatoria,PR001
+3,AS022,Economía digital,1,6,obligatoria,PR006
+3,AS023,Evaluación,2,6,obligatoria,PR007
+3,AS024,Infraestrutura para el procesamiento de datos,1,6,obligatoria,PR009
+3,AS025,Lenguaje natural y recuperación de la información,2,6,obligatoria,PR009
+3,AS026,Modelado y simulación continuos,2,6,obligatoria,PR010
+3,AS027,Modelos descriptivos y predictivos II,1,6,obligatoria,PR008
+3,AS028,Proyecto III. Analisis de datos,2,6,obligatoria,PR010
+3,AS029,Representación del conocimiento y razonamiento,1,6,obligatoria,PR011
+3,AS030,Visualización,1,6,obligatoria,PR010
+4,AS031,Gestión de proyectos,1,5,obligatoria,PR005
+4,AS032,Marco profesional,1,5,obligatoria,PR006
+4,AS033,Optimización,1,6,obligatoria,PR015
+4,AS034,Técnicas escalables en aprendizaje automático,1,6,obligatoria,PR024
+4,AS035,Trabajo Fin de Grado,2,12,obligatoria,PR036
+4,AS036,Alemán académico y profesional A1,1,5,optativa,PR020
+4,AS037,Alemán académico y profesional A2,2,5,optativa,PR020
+4,AS038,Alemán académico y profesional B1,1,5,optativa,PR020
+4,AS039,Alemán académico y profesional B2,2,5,optativa,PR020
+4,AS040,Análisis de datos en entornos industriales,1,5,optativa,PR002
+4,AS041,Análisis de imágenes y vídeos,1,5,optativa,PR021
+4,AS042,Análisis de mercados y aplicaciones financieras,1,5,optativa,PR005
+4,AS043,Análisis de redes sociales,1,5,optativa,PR002
+4,AS044,Analítica de datos en educació,1,5,optativa,PR002
+4,AS045,Analítica de datos en seguridad,1,5,optativa,PR002
+4,AS046,Bases de datos avanzadas y distribuidas,1,5,optativa,PR016
+4,AS047,Biomedical data science,1,5,optativa,PR026
+4,AS048,Business Analytics,2,5,optativa,PR005
+4,AS049,Cibermetría,2,5,optativa,PR004
+4,AS050,Estructuas de datos y algoritmos escalables,2,5,optativa,PR002
+4,AS051,Français scientifique et technique - B1,1,5,optativa,PR027
+4,AS052,Francés académico y profesional A1,1,5,optativa,PR027
+4,AS053,Francés académico y profesional A2,2,5,optativa,PR027
+4,AS054,Frances académico y profesional B1,1,5,optativa,PR027
+4,AS055,Frances académico y profesional B2,2,5,optativa,PR027
+4,AS056,Gestion clínica y de servicios de salud,2,5,optativa,PR011
+4,AS057,Gestión de datos científicos en salud,2,5,optativa,PR015
+4,AS058,Gestión de datos en logística y cadenas de suministro,2,5,optativa,PR002
+4,AS059,Inglés B2,1,5,optativa,PR030
+4,AS060,Intercambio Académico I,1,3,optativa,PR031
+4,AS061,Intercambio Académico II,1,3,optativa,PR031
+4,AS062,Intercambio Académico III,2,3,optativa,PR031
+4,AS063,Intercambio Académico IV,2,3,optativa,PR031
+4,AS064,Intercambio Académico V,2,3,optativa,PR031
+4,AS065,Intercambio Académico VI,1,5,optativa,PR031
+4,AS066,Intercambio Académico VII,1,5,optativa,PR031
+4,AS067,Intercambio Académico VIII,2,5,optativa,PR031
+4,AS068,Intercambio Académico IX,2,5,optativa,PR031
+4,AS069,Intercambio Académico X,1,6,optativa,PR031
+4,AS070,Intercambio Académico XI,2,6,optativa,PR031
+4,AS071,Italiano académico y profesional A1,1,5,optativa,PR029
+4,AS072,Marketing,2,5,optativa,PR005
+4,AS073,Modelos de programación para computación de datos,2,5,optativa,PR004
+4,AS074,Procesamiento y análisis de biosecuencias,2,5,optativa,PR025
+4,AS075,Programación para Internet de las Cosas (IoT),2,5,optativa,PR004
+4,AS076,Sistemas de información empresarial,2,5,optativa,PR005
+4,AS077,Sistemas inteligentes de transporte,2,5,optativa,PR006
+4,AS078,Técnicas de previsión,2,5,optativa,PR006
+4,AS079,Tratamiento de datos geoespaciales,2,5,optativa,PR002
+4,AS080,Tratamiento de la infromación en IoT,2,5,optativa,PR033
+4,AS081,Visualización interactiva,2,5,optativa,PR015
+4,AS082,Inglés C1,1,5,optativa,PR034
+4,AS083,Inglés C2,2,5,optativa,PR034
+5,AS084,Fundamentos de tratamiento de datos para Data Science,1,6,obligatoria,PR002
+5,AS085,Modelos y aprendizaje estadístico,1,6,obligatoria,PR008
+5,AS086,Aprendizaje automático aplicado (Machine Learning),1,6,obligatoria,PR036
+5,AS087,Minería de texto y procesamiento del lenguaje natural (PNL),1,6,obligatoria,PR036
+5,AS088,Inteligencia de negocio y visualización,1,6,obligatoria,PR036
+5,AS089,Infraestructura Big Data,2,6,obligatoria,PR036
+5,AS090,Almacenamiento e integración de datos,2,6,obligatoria,PR022
+5,AS091,Valor y contexto de la analítica big data,2,6,obligatoria,PR022
+5,AS092,Aplicaciones analíticas. Casos Practicos,2,6,obligatoria,PR022
+5,AS093,Trabajo Fin de Master,2,6,obligatoria,PR010
+5,AS094,Curso de metodologías ágiles,2,6,optativa,PR010
+6,AS095,Técnicas y metodología de la minería de datos (SEMMA),1,0,optativa,PR002
+6,AS096,Gestión y explotación de almacenes de datos,1,0,optativa,PR002
+6,AS097,Redes neuronales y algoritmos genéticos,1,0,optativa,PR037
+6,AS098,Gestión de relaciones con el cliente CRM,2,0,optativa,PR005
+6,AS099,Inteligencia de negocio y cuadro de mando integral,2,0,optativa,PR005
+6,AS100,Modelos de decisión en marketing,2,0,optativa,PR005

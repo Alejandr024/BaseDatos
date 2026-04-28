@@ -1,0 +1,49 @@
+idProfesor,NIF,nombre,apellido1,apellido2,email,direccion,codigoPostal,municipio,provincia,categoria
+PR001,34417139B,Juan,Infante,Fraidias,juan.infante.fraidias@ucm.com,"Calle de los Almendros , 86",28070,Las Rozas,Madrid,Asociados
+PR002,52479077P,David,Serna,Balmori,david.serna.balmori@ucm.com,"Calle Abarejo , 44",28017,Brea de Tajo,Madrid,Titulares Universidad
+PR003,84277383X,Josefa,Pedraza,Travez,josefa.pedraza.travez@ucm.com,"Calle Abogados de Atocha , 145",28035,El Molar,Madrid,Contratados Doctores
+PR004,72702217A,Jose Antonio,Belda,Leno,jose.antonio.belda.leno@ucm.com,"Calle de Ayamonte , 186",28080,Pezuela de las Torres,Madrid,Titulares Universidad
+PR005,75239553F,Jose Luis,Barragan,Usategui,jose.luis.barragan.usategui@ucm.com,"Travesia del Almendro , 97",28038,Robledillo de la Jara,Madrid,Catedráticos de Escuela Universitaria
+PR006,81953461Y,Francisco Javier,Reig,Amills,francisco.javier.reig.amills@ucm.com,"Calle de la Albericia , 134",28071,Colmenarejo,Madrid,Contratados Doctores Interinos
+PR007,18598553N,Ana Maria,De Diego,Bocigas,ana.maria.de.diego.bocigas@ucm.com,"Avenida de los Andes , 188",28030,Prádena del Rincón,Madrid,PDI predoctoral
+PR008,72252271H,Carlos,Fuertes,Carulla,carlos.fuertes.carulla@ucm.com,"Calle Águeda , 26",28046,Velilla de San Antonio,Madrid,Catedráticos de Escuela Universitaria
+PR009,70631063C,Daniel,Aguado,Pastrana,daniel.aguado.pastrana@ucm.com,"Calle de Antoñita Jiménez , 122",28041,Talamanca de Jarama,Madrid,Catedráticos de Universidad
+PR010,15794042W,Maria Dolores,Espino,Zamudio,maria.dolores.espino.zamudio@ucm.com,"Calle del Arroyo de la Elipa , 189",28034,San Martín de la Vega,Madrid,Titulares Universidad
+PR011,86245635W,Maria Pilar,Valderrama,Urquiaga,maria.pilar.valderrama.urquiaga@ucm.com,"Calle Alisios , 150",28006,Chapinería,Madrid,Catedráticos de Escuela Universitaria
+PR012,83153833C,Miguel,Fuentes,Andreu,miguel.fuentes.andreu@ucm.com,"Calle de la Alcoholera , 12",28080,Pozuelo del Rey,Madrid,Contratados Doctores Interinos
+PR013,55710808P,Maria Teresa,Pico,Zoyo,maria.teresa.pico.zoyo@ucm.com,"Calle de Arenas de Iguña , 17",28080,Algete,Madrid,Ayudantes Doctores
+PR014,52041463T,Ana,Andujar,Popovici,ana.andujar.popovici@ucm.com,"Calle de las Aguas , 61",28035,Cabanillas de la Sierra,Madrid,Otros Investigadores Doctores
+PR015,81703794T,Rafael,Murcia,Petrov,rafael.murcia.petrov@ucm.com,"Calle Almendro , 53",28012,Tielmes,Madrid,PDI predoctoral
+PR016,36742399V,Jose Manuel,Antolin,Diranzo,jose.manuel.antolin.diranzo@ucm.com,"Calle Azabache , 190",28012,Piñuécar-Gandullas,Madrid,Catedráticos de Universidad
+PR017,33150418J,Pedro,Calderon,Domenech,pedro.calderon.domenech@ucm.com,"Carretera de Alpedrete , 104",28008,Ciempozuelos,Madrid,Contratados Doctores
+PR018,82285639Q,Laura,Bueno,Sobreira,laura.bueno.sobreira@ucm.com,"Calle de los Árboles , 198",28039,Cabanillas de la Sierra,Madrid,Catedráticos de Escuela Universitaria
+PR019,37497894I,Francisca,Smith,Mafla,francisca.smith.mafla@ucm.com,"Calle del Arco , 149",28029,Moralzarzal,Madrid,Otros Investigadores Doctores
+PR020,34744580Y,Antonia,Vara,Esarte,antonia.vara.esarte@ucm.com,"Calle de Alba de Tormes , 123",28030,Valdemoro,Madrid,Contratados Doctores
+PR021,25542059S,Alejandro,Piã‘A,Ivars,alejandro.piã‘a.ivars@ucm.com,"Calle Alfonso X El Sabio , 199",28008,Colmenar de Oreja,Madrid,Catedráticos de Escuela Universitaria
+PR022,71976482V,Dolores,Amoros,Cases,dolores.amoros.cases@ucm.com,"Calle de las Acacias , 109",28048,Manzanares el Real,Madrid,Catedráticos de Universidad
+PR023,76471428I,Antonio,Quero,Atienza,antonio.quero.atienza@ucm.com,"Vereda de las Arboledas , 89",28015,Sevilla la Nueva,Madrid,Catedráticos de Universidad
+PR024,57354131X,Jose,Valera,Bardal,jose.valera.bardal@ucm.com,"Calle de la Alegría , 82",28034,Villa del Prado,Madrid,Titulares Universidad
+PR025,21841380T,Maria Carmen,Palacios,Cholvi,maria.carmen.palacios.cholvi@ucm.com,"Calle Apolo , 32",28083,Meco,Madrid,Otros Investigadores Doctores
+PR026,86751787V,Maria,Lucena,Nebra,maria.lucena.nebra@ucm.com,"Calle Arroyo de los Berros , 31",28046,Moraleja de Enmedio,Madrid,Catedráticos de Escuela Universitaria
+PR027,35634129C,Manuel,Falcon,Zendoia,manuel.falcon.zendoia@ucm.com,"Calle de Aguileñas , 65",28041,Mejorada del Campo,Madrid,Titulares de Escuela Universitaria
+PR028,67157773L,Francisco,Cid,Lubiano,francisco.cid.lubiano@ucm.com,"Travesia Antón , 55",28045,Madrid,Madrid,Asociado Interino
+PR029,34163047Q,Carmen,Pino,Holgueras,carmen.pino.holgueras@ucm.com,"Calle de Alcalá de Guadaira , 170",28048,Rozas de Puerto Real,Madrid,Titulares de Escuela Universitaria
+PR030,78969666B,Juan,Perera,Chao,juan.perera.chao@ucm.com,"Calle del Arroyo , 34",28009,Pinilla del Valle,Madrid,Asociados
+PR031,15480959Q,David,Galindo,Chirila,david.galindo.chirila@ucm.com,"Calle de Asunción Cuestablanca , 40",28040,La Cabrera,Madrid,Asociado Interino
+PR032,76367475V,Josefa,Villena,Hombrados,josefa.villena.hombrados@ucm.com,"Calle de Alonso de Mendoza , 161",28043,Boadilla del Monte,Madrid,PDI predoctoral
+PR033,64389449W,Jose Antonio,Bonilla,Abello,jose.antonio.bonilla.abello@ucm.com,"Calle de Albalate del Arzobispo , 51",28016,Navalafuente,Madrid,Ayudantes Doctores
+PR034,47783567D,Jose Luis,Yague,Liern,jose.luis.yague.liern@ucm.com,"Calle Atocha , 133",28023,Puebla de la Sierra,Madrid,Ayudantes Doctores
+PR035,13616538V,Javier,Exposito,Orejuela,javier.exposito.orejuela@ucm.com,"Calle los Acebos , 138",28086,Valdemaqueda,Madrid,Titulares Universidad
+PR036,78722469N,Isabel,Chaves,Cantisano,isabel.chaves.cantisano@ucm.com,"Calle de Alcudia , 14",28006,San Fernando de Henares,Madrid,Catedráticos de Escuela Universitaria
+PR037,45405804R,Jesus,Cerezo,Esquer,jesus.cerezo.esquer@ucm.com,"Calle Armonía , 61",28087,Robledo de Chavela,Madrid,Contratados Doctores
+PR038,25187565W,Francisco Javier,Aguilera,Pavlova,francisco.javier.aguilera.pavlova@ucm.com,"Calle Acacia , 53",28014,Boadilla del Monte,Madrid,Catedráticos de Universidad
+PR039,19655057F,Ana Maria,Guillen,Bembibre,ana.maria.guillen.bembibre@ucm.com,"Pasaje Almendro del Paular , 167",28071,Puentes Viejas,Madrid,Catedráticos de Universidad
+PR040,29987297T,Carlos,De Las Heras,Orrego,carlos.de.las.heras.orrego@ucm.com,"Calle del Alcalde Ramón del Yerro Ordóñez , 135",28011,El Molar,Madrid,Eméritos
+PR041,22835810F,Daniel,De La Rosa,Gaudes,daniel.de.la.rosa.gaudes@ucm.com,"Calle del Alcalde Pablo Durán y Pérez de Castro , 2",28050,Fuentidueña de Tajo,Madrid,Ayudantes Doctores
+PR042,63215069W,Maria Dolores,Casanova,Ocasar,maria.dolores.casanova.ocasar@ucm.com,"Calle de las Arenas , 161",28083,Braojos de la Sierra,Madrid,Contratados Doctores Interinos
+PR043,83480230A,Maria Pilar,Bejarano,De La Piedad,maria.pilar.bejarano.de.la.piedad@ucm.com,"Calle Aldea del Fresno , 105",28071,Coslada,Madrid,Contratados Doctores Interinos
+PR044,19206079I,Miguel,Silva,Rose,miguel.silva.rose@ucm.com,"Calle de Asunción , 173",28049,Bustarviejo,Madrid,Asociado Interino
+PR045,66989687K,Maria Teresa,Valderrama,Ruperez,maria.teresa.valderrama.ruperez@ucm.com,"Plaza de Antonio Chenel Antoñete , 152",28014,Lozoyuela-Navas-Sieteiglesias,Madrid,Titulares Universidad
+PR046,47970524A,Ana,Padron,Balada,ana.padron.balada@ucm.com,"Calle de Argentona , 179",28002,Boadilla del Monte,Madrid,Titulares Universidad
+PR047,76965754O,Rafael,Figueroa,Casal,rafael.figueroa.casal@ucm.com,"Calle de la Aeronave , 37",28004,Colmenarejo,Madrid,PDI predoctoral
+PR048,48034341Q,Jose Manuel,Nevado,Veras,jose.manuel.nevado.veras@ucm.com,"Calle Arlanza , 170",28001,Ajalvir,Madrid,Catedráticos de Universidad

@@ -12,6 +12,7 @@ CREATE TABLE proveedores (
   email VARCHAR(100)
 );
 
+
 -- ------------------------------------------------------------
 -- 2. GOLOSINAS
 -- ------------------------------------------------------------
@@ -137,18 +138,24 @@ CREATE TABLE detalleNominaConceptos (
 DELIMITER $$
 CREATE FUNCTION calcularTotalDevengos(pIdNomina INT)
 RETURNS DECIMAL(10,2)
-DETERMINISTIC
+DETERMINISTIC -- los mismos 
 READS SQL DATA
 BEGIN
   DECLARE vTotal DECIMAL(10,2);
-  SELECT COALESCE(SUM(dnc.importeCalculado), 0)
+  SELECT SUM(dnc.importeCalculado)
     INTO vTotal
     FROM detalleNominaConceptos dnc
     JOIN tiposConceptoNomina tcn ON tcn.idConcepto = dnc.idConcepto
    WHERE dnc.idNomina = pIdNomina
      AND tcn.tipoMovimiento  = 'Devengo';
-  RETURN vTotal;
+  RETURN IFNULL(vTotal,0.00); -- si no encuentra filas, el sum devuelve null, para evitar esto, hacemos que devuelvo 0 con ifnull().
 END$$
+
+-- La funcion calcularTotalDevengos trata de calcular el total de ingresos de un empleado, y para ello se pide, como parametro, el idNomina del empleado.
+-- Con el idNomina, buscamos los importes calculados, cuyo movimiento sea 'Devengos' y que ademas la nomima este presente en la tabla de detalleNominaConcepto.
+-- Para llevar a cabo dicha funcion, utilizamos tres tablas para encontrar todos los devengos disponibles de la nomina: detalleNominaConcepto, tiposConceptoNomina y nomima.
+-- COn la tabla nomina se concecta con la tabla detalleNonimaConcepto, y la tabla tipoConceptoNomina se conecta tambien con la tabla detalleNominaConceptos mediante el JOIN, para captuar todos los devengos existentes.
+-- 
 
 -- ============================================================
 --  PROCEDIMIENTO: calcular_nomina
@@ -157,15 +164,14 @@ END$$
 -- ============================================================
 CREATE PROCEDURE calcularNomina(IN pIdNomina INT)
 BEGIN
-  DECLARE vDevengos DECIMAL(10,2);
-  DECLARE vDeducciones DECIMAL(10,2);
+	DECLARE v_total DECIMAL(10,2);
 
-  SELECT COALESCE(SUM(CASE WHEN tcn.tipoMovimiento = 'Devengo'   THEN dnc.importeCalculado ELSE 0 END), 0),
-         COALESCE(SUM(CASE WHEN tcn.tipoMovimiento = 'Deduccion' THEN dnc.importeCalculado ELSE 0 END), 0)
-    INTO vDevengos, vDeducciones
+  SELECT SUM(dnc.importeCalculado)
+    INTO v_total
     FROM detalleNominaConceptos dnc
     JOIN tiposConceptoNomina tcn ON tcn.idConcepto = dnc.idConcepto
-   WHERE dnc.idNomina = pIdNomina;
+   WHERE dnc.idNomina = pIdNomina
+   AND tcn.tipoMovimiento= "Deduccion";
 
   UPDATE nominas
      SET totalDevengos = vDevengos,
@@ -181,10 +187,13 @@ DELIMITER ;
 -- ============================================================
 
 -- Proveedores
-INSERT INTO proveedores (nombreEmpresa, personaContacto, telefono, email)
+INSERT INTO proveedores (idProveedor, nombreEmpresa, personaContacto, telefono, email)
 VALUES
-  ('Chucherías del Norte S.L.', 'Ana López',   '912345678', 'ana@chuches.es'),
-  ('Dulces Mediterráneo S.A.',  'Pedro Ruiz',  '934567890', 'pedro@dulcesmed.es');
+  (1,'ChocoDelicias S.A.', 'Carlos Rivera', '912345678', 'pedidos@chocodelicias.es'),
+  (2,'Gominolas Fantasía Ltda.', 'Laura Méndez', '934567890', 'laura.mendez@gominolasfantasia.com'),
+  (3,'Snacks Internacionales S.L.', 'Pedro Jiménez', '600112233','ventas@snacksinternacionales.com'),
+(4, 'Dulces Tradicionales El Artesano', 'Ana Torres', '987654321', 'info@dulcesartesano.es'),
+(5, 'Importadora de Caramelos del Mundo', 'Sofía Castro', '650987654','scastro@caramelosmundo.com');
 
 -- Golosinas
 INSERT INTO golosinas (nombre, descripcion, precioVenta, stockActual, fechaCaducidad, idProveedor)

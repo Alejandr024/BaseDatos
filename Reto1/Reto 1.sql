@@ -111,7 +111,7 @@ CREATE TABLE nominas (
   fechaPago DATE,
   totalDevengos DECIMAL(10,2),
   totalDeducciones DECIMAL(10,2) DEFAULT 0.00,
-  salarioNeto DECIMAL(10,2) GENERATED ALWAYS AS (totalDevengos - totalDeducciones),
+  salarioNeto DECIMAL(10,2) GENERATED ALWAYS AS (totalDevengos - totalDeducciones) ,
   FOREIGN KEY (idEmpleado) REFERENCES empleados (dni) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
@@ -129,6 +129,8 @@ CREATE TABLE detalleNominaConceptos (
   FOREIGN KEY (idNomina) REFERENCES nominas (idNomina) ON UPDATE CASCADE ON DELETE CASCADE,
   FOREIGN KEY (idConcepto) REFERENCES tiposConceptoNomina (idConcepto) ON UPDATE CASCADE ON DELETE RESTRICT
 );
+
+
 
 -- ============================================================
 --  FUNCIÓN: calcularTotalDevengos
@@ -183,111 +185,95 @@ END$$
 DELIMITER ;
 
 -- ============================================================
---  DATOS DE EJEMPLO
+--  DATOS
 -- ============================================================
 
 -- Proveedores
 INSERT INTO proveedores (idProveedor, nombreEmpresa, personaContacto, telefono, email)
 VALUES
-  (1,'ChocoDelicias S.A.', 'Carlos Rivera', '912345678', 'pedidos@chocodelicias.es'),
-  (2,'Gominolas Fantasía Ltda.', 'Laura Méndez', '934567890', 'laura.mendez@gominolasfantasia.com'),
-  (3,'Snacks Internacionales S.L.', 'Pedro Jiménez', '600112233','ventas@snacksinternacionales.com'),
+(1,'ChocoDelicias S.A.', 'Carlos Rivera', '912345678', 'pedidos@chocodelicias.es'),
+(2,'Gominolas Fantasía Ltda.', 'Laura Méndez', '934567890', 'laura.mendez@gominolasfantasia.com'),
+(3,'Snacks Internacionales S.L.', 'Pedro Jiménez', '600112233','ventas@snacksinternacionales.com'),
 (4, 'Dulces Tradicionales El Artesano', 'Ana Torres', '987654321', 'info@dulcesartesano.es'),
 (5, 'Importadora de Caramelos del Mundo', 'Sofía Castro', '650987654','scastro@caramelosmundo.com');
 
 -- Golosinas
 INSERT INTO golosinas (nombre, descripcion, precioVenta, stockActual, fechaCaducidad, idProveedor)
 VALUES
-  ('Gominola de fresa',  'Gominola con sabor a fresa natural', 0.10,  500, '2025-12-31', 1),
-  ('Chocolatina con leche', 'Chocolate con leche en tableta pequeña', 0.50, 200, '2025-09-30', 2);
+(1, 'Ositos de Goma Ácidos', 'Gominolas con forma de osito y pica-pica ácido, saboressurtidos.', 1.50, 120, 2, '2026-03-15'),
+(2, 'Tableta Chocolate Negro 70%', 'Chocolate negro intenso con 70% de cacao puro.', 2.20,75, 1, '2026-07-30'),
+(3, 'Chicle Menta Fresca (Paquete)', 'Paquete de chicles sin azúcar sabor menta fresca.',0.80, 200, 3, '2025-12-01'),
+(4, 'Caramelos de Violeta Artesanos', 'Auténticos caramelos de violeta, receta tradicional.',2.50, 50, 4, '2026-01-20'),
+(5, 'Nubes de Fresa Gigantes', 'Nubes de azúcar esponjosas con sabor a fresa, tamaño XL.',1.00, 90, 5, '2025-11-10'),
+(6, 'Piruleta Corazón Fresa', 'Piruleta clásica con forma de corazón y sabor a fresa intensa.',0.60, 150, 2, '2026-05-22'),
+(7, 'Bombones Surtidos Caja Pequeña', 'Caja con selección de 6 bombones de chocolate con leche, negro y blanco.', 3.00, 40, 1, '2025-10-15'),
+(8, 'Patatas Fritas Onduladas (Bolsa)', 'Bolsa de patatas fritas con corte ondulado y sal.',1.20, 110, 3, '2025-09-01'),
+(9, 'Regaliz Rojo Relleno (Tira)', 'Tira de regaliz rojo con relleno cremoso sabor nata.', 0.75,130, 5, '2026-02-28'),
+(10, 'Pastillas de Menta y Eucalipto', 'Caramelos balsámicos para refrescar el aliento y la garganta.', 1.80, 60, 4, '2026-08-10');
 
 -- Departamentos
-INSERT INTO departamentos (nombre) VALUES ('Ventas'), ('RRHH'), ('Almacén');
+INSERT INTO departamentos (codigoDepartamento, nombre) 
+VALUES 
+(10, 'Ventas'),
+(20, 'Recursos Humanos'),
+(30, 'Almacén');
 
 -- Cargos
 INSERT INTO cargos (nombreCargo, descripcionFunciones, salarioBase)
 VALUES
-  ('Vendedor',            'Atención al cliente y cobro en caja', 1200.00),
-  ('Responsable de RRHH', 'Gestión de personal y nóminas',       1800.00),
-  ('Reponedor',           'Reposición y control de stock',       1100.00);
+(101, 'Vendedor/a', 'Atención al cliente, venta de productos, reposición en tienda.', 1250.75),
+(102, 'Cajero/a', 'Cobro de productos, arqueo de caja, atención al cliente.', 1200.50),
+(103, 'Responsable de RRHH', 'Gestión de personal, nóminas, contratación, formación.', 2300.00),
+(104, 'Reponedor/a Almacén', 'Recepción de mercancía, organización de almacén, preparación de pedidos para tienda.', 1150.20),
+(105, 'Jefe/a de Tienda', 'Supervisión del equipo de ventas, gestión de stock en tienda, objetivos de venta.', 1950.00);
 
 -- Empleados
 INSERT INTO empleados (dni, nombre, apellidos, fechaNacimiento, direccion, telefono, email, fechaContratacion, codigoDepartamento, codigoCargo)
 VALUES
-  ('12345678A', 'María',   'García Torres',  '1990-04-15', 'Calle Mayor 1, Madrid', '600111222', 'maria@dulcerincon.es', '2020-01-10', 1, 1),
-  ('87654321B', 'Carlos',  'Martín Díaz',    '1985-08-22', 'Avenida Sol 5, Madrid',  '600333444', 'carlos@dulcerincon.es','2018-06-01', 2, 2);
+('12345678A', 'Ana', 'García Pérez', '1990-05-15', 'Calle Mayor 1, 28001 Madrid','600111222', 'ana.garcia@dulcerincon.es', '2020-03-01', 10, 105),
+('23456789B', 'Luis', 'Martínez Sánchez', '1995-08-20', 'Avenida del Sol 5, 28002 Madrid','600222333', 'luis.martinez@dulcerincon.es', '2022-01-10', 10, 101),
+('34567890C', 'Sofía', 'López Fernández', '1998-11-02', 'Plaza Nueva 3, 28003 Madrid','600333444', 'sofia.lopez@dulcerincon.es', '2023-06-15', 10, 102),
+('45678901D', 'Carlos', 'Ruiz Gómez', '1985-02-10', 'Calle Luna 7, 28004 Madrid','600444555', 'carlos.ruiz@dulcerincon.es', '2018-09-01', 20, 103),
+('56789012E', 'Elena', 'Vázquez Torres', '1992-07-25', 'Paseo de la Castellana 100, 28005Madrid', '600555666', 'elena.vazquez@dulcerincon.es', '2021-05-20', 30, 104),
+('67890123F', 'Javier', 'Romero Díaz', '1999-01-30', 'Calle Gran Vía 20, 28006 Madrid','600666777', 'javier.romero@dulcerincon.es', '2024-02-01', 10, 101),
+('78901234G', 'Laura', 'Jiménez Moreno', '1996-04-12', 'Calle Alcalá 150, 28007 Madrid','600777888', 'laura.jimenez@dulcerincon.es', '2023-01-05', 10, 102),
+('89012345H', 'David', 'Álvarez Alonso', '2000-09-05', 'Avenida de América 2, 28008 Madrid','600888999', 'david.alvarez@dulcerincon.es', '2024-05-01', 30, 104),
+('90123456I', 'Marta', 'Gutiérrez Navarro', '1993-12-18', 'Calle Serrano 50, 28009 Madrid','600999000', 'marta.gutierrez@dulcerincon.es', '2022-11-10', 10, 101),
+('01234567J', 'Pablo', 'Iglesias Ramos', '1997-06-22', 'Ronda de Valencia 8, 28010 Madrid','600000111', 'pablo.iglesias@dulcerincon.es', '2023-08-20', 10, 101);
 
--- Tipos de concepto de nómina
-INSERT INTO tiposConceptoNomina (nombreConcepto, tipoMovimiento, esPorcentaje, porcentajeAplicable)
-VALUES
-  ('Salario base',                          'Devengo',   FALSE, NULL),
-  ('Horas extra al 50%',                    'Devengo',   TRUE,  0.50),
-  ('Complemento de antigüedad (trienio)',   'Devengo',   FALSE, NULL),
-  ('Bonificación productividad',            'Devengo',   FALSE, NULL),
-  ('SS Contingencias comunes (trabajador)', 'Deduccion', TRUE,  0.47),
-  ('SS Desempleo (trabajador)',             'Deduccion', TRUE,  0.15),
-  ('SS Formación profesional',              'Deduccion', TRUE,  0.10),
-  ('Retención IRPF',                        'Deduccion', TRUE,  0.15);
-
--- Venta de ejemplo
+-- Ventas
 INSERT INTO ventas (fechaHora, idEmpleado)
-VALUES ('2024-05-10 10:30:00', '12345678A');
+VALUES (1, '2025-05-27 10:15:30', '23456789B'),
+(2, '2025-05-27 11:05:00', '34567890C'),
+(3, '2025-05-27 12:30:15', '67890123F'),
+(4, '2025-05-27 16:45:50', '78901234G'),
+(5, '2025-05-27 18:00:00', '90123456I'),
+(6, '2025-05-26 10:30:00', '01234567J'),
+(7, '2025-05-26 11:20:10', '12345678A'),
+(8, '2025-05-26 14:00:45', '23456789B'),
+(9, '2025-05-26 17:15:20', '34567890C'),
+(10, '2025-05-26 19:05:30', '67890123F'),
+(11, '2025-05-25 10:05:00', '78901234G'),
+(12, '2025-05-25 11:45:15', '90123456I'),
+(13, '2025-05-25 13:50:00', '01234567J'),
+(14, '2025-05-24 16:30:25', '12345678A'),
+(15, '2025-05-24 18:55:40', '23456789B'),
+(16, '2025-04-20 10:10:10', '34567890C'),
+(17, '2025-04-20 12:00:00', '67890123F'),
+(18, '2025-04-21 17:05:00', '78901234G'),
+(19, '2025-04-22 11:33:00', '90123456I'),
+(20, '2025-04-23 18:22:00', '01234567J'),
+(21, '2025-03-15 10:40:00', '12345678A'),
+(22, '2025-03-15 16:15:00', '23456789B'),
+(23, '2025-03-16 11:55:00', '34567890C'),
+(24, '2025-02-28 17:50:00', '67890123F'),
+(25, '2025-02-28 19:10:00', '78901234G');
 
+-- Detalles de venta
 INSERT INTO detalleVenta (idVenta, idGolosina, cantidad, precioUnitarioVenta)
 VALUES (1, 1, 10, 0.10), (1, 2, 2, 0.50);
 
--- Nómina de ejemplo (mayo 2024, María García)
-INSERT INTO nominas (idEmpleado, mes, yearCorrespondiente, fechaEmision, fechaPago, totalDevengos, totalDeducciones, salarioNeto)
-VALUES ('12345678A', 5, 2024, '2023-12-02', '2024-06-05', 3333.33, 1234.55, 2098.78);
-
-CREATE TABLE nominas (
-  idNomina INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  idEmpleado VARCHAR(9) NOT NULL,
-  mes VARCHAR(30) NOT NULL,
-  yearCorrespondiente YEAR NOT NULL,
-  fechaEmision DATE NOT NULL,
-  fechaPago DATE,
-  totalDevengos DECIMAL(10,2),
-  totalDeducciones DECIMAL(10,2) DEFAULT 0.00,
-  salarioNeto DECIMAL(10,2) GENERATED ALWAYS AS (totalDevengos - totalDeducciones),
-  FOREIGN KEY (idEmpleado) REFERENCES empleados (dni) ON UPDATE CASCADE ON DELETE RESTRICT
-);
-
-
-INSERT INTO detalle_nomina_conceptos (id_nomina, id_concepto, base_calculo, cantidad, precio_unitario, importe_calculado)
-VALUES
-  (1, 1, NULL,    NULL, NULL,  1200.00),   -- Salario base
-  (1, 3, NULL,    1,    60.00, 60.00),     -- 1 trienio = 60 €
-  (1, 5, 1260.00, NULL, NULL,  59.22),     -- SS Contingencias 4.70%
-  (1, 6, 1260.00, NULL, NULL,  19.53),     -- SS Desempleo 1.55%
-  (1, 7, 1260.00, NULL, NULL,  1.26),      -- SS Formación 0.10%
-  (1, 8, 1260.00, NULL, NULL,  189.00);    -- IRPF 15%
-
--- Recalcular totales de la nómina
-CALL calcular_nomina(1);
-
--- ============================================================
---  CONSULTAS ÚTILES DE EJEMPLO
--- ============================================================
-
--- Resumen de una nómina
-SELECT n.id_nomina, CONCAT(e.nombre,' ',e.apellidos) AS empleado,
-       n.mes, n.anio, n.total_devengos, n.total_deducciones, n.salario_neto
-  FROM nominas n
-  JOIN empleados e ON e.dni = n.id_empleado;
-
--- Desglose de conceptos de una nómina
-SELECT tcn.nombre_concepto, tcn.tipo_movimiento, dnc.importe_calculado
-  FROM detalle_nomina_conceptos dnc
-  JOIN tipos_concepto_nomina    tcn ON tcn.id_concepto = dnc.id_concepto
- WHERE dnc.id_nomina = 1
- ORDER BY tcn.tipo_movimiento, dnc.importe_calculado DESC;
-
--- Total de ventas por empleado
-SELECT CONCAT(e.nombre,' ',e.apellidos) AS empleado,
-       COUNT(v.id_venta)               AS num_ventas,
-       SUM(dv.cantidad * dv.precio_unitario_venta) AS total_facturado
-  FROM ventas v
-  JOIN empleados    e  ON e.dni         = v.id_empleado
-  JOIN detalle_venta dv ON dv.id_venta  = v.id_venta
- GROUP BY e.dni;
+-- Calcular el dinero en total de una venta
+SELECT SUM(cantidad * precioUnitarioVenta) AS totalVenta
+FROM detalleVenta
+WHERE idVenta = 1;

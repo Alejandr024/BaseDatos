@@ -130,8 +130,6 @@ CREATE TABLE detalleNominaConceptos (
   FOREIGN KEY (idConcepto) REFERENCES tiposConceptoNomina (idConcepto) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
-
-
 -- ============================================================
 --  FUNCIÓN: calcularTotalDevengos
 --  Devuelve la suma de importe_calculado para los conceptos
@@ -156,7 +154,7 @@ END$$
 -- La funcion calcularTotalDevengos trata de calcular el total de ingresos de un empleado, y para ello se pide, como parametro, el idNomina del empleado.
 -- Con el idNomina, buscamos los importes calculados, cuyo movimiento sea 'Devengos' y que ademas la nomima este presente en la tabla de detalleNominaConcepto.
 -- Para llevar a cabo dicha funcion, utilizamos tres tablas para encontrar todos los devengos disponibles de la nomina: detalleNominaConcepto, tiposConceptoNomina y nomima.
--- COn la tabla nomina se concecta con la tabla detalleNonimaConcepto, y la tabla tipoConceptoNomina se conecta tambien con la tabla detalleNominaConceptos mediante el JOIN, para captuar todos los devengos existentes.
+-- Con la tabla nomina se concecta con la tabla detalleNonimaConcepto, y la tabla tipoConceptoNomina se conecta tambien con la tabla detalleNominaConceptos mediante el JOIN, para capturar todos los devengos existentes.
 -- 
 
 -- ============================================================
@@ -200,16 +198,16 @@ VALUES
 -- Golosinas
 INSERT INTO golosinas (nombre, descripcion, precioVenta, stockActual, fechaCaducidad, idProveedor)
 VALUES
-(1, 'Ositos de Goma Ácidos', 'Gominolas con forma de osito y pica-pica ácido, saboressurtidos.', 1.50, 120, 2, '2026-03-15'),
-(2, 'Tableta Chocolate Negro 70%', 'Chocolate negro intenso con 70% de cacao puro.', 2.20,75, 1, '2026-07-30'),
-(3, 'Chicle Menta Fresca (Paquete)', 'Paquete de chicles sin azúcar sabor menta fresca.',0.80, 200, 3, '2025-12-01'),
-(4, 'Caramelos de Violeta Artesanos', 'Auténticos caramelos de violeta, receta tradicional.',2.50, 50, 4, '2026-01-20'),
-(5, 'Nubes de Fresa Gigantes', 'Nubes de azúcar esponjosas con sabor a fresa, tamaño XL.',1.00, 90, 5, '2025-11-10'),
-(6, 'Piruleta Corazón Fresa', 'Piruleta clásica con forma de corazón y sabor a fresa intensa.',0.60, 150, 2, '2026-05-22'),
-(7, 'Bombones Surtidos Caja Pequeña', 'Caja con selección de 6 bombones de chocolate con leche, negro y blanco.', 3.00, 40, 1, '2025-10-15'),
-(8, 'Patatas Fritas Onduladas (Bolsa)', 'Bolsa de patatas fritas con corte ondulado y sal.',1.20, 110, 3, '2025-09-01'),
-(9, 'Regaliz Rojo Relleno (Tira)', 'Tira de regaliz rojo con relleno cremoso sabor nata.', 0.75,130, 5, '2026-02-28'),
-(10, 'Pastillas de Menta y Eucalipto', 'Caramelos balsámicos para refrescar el aliento y la garganta.', 1.80, 60, 4, '2026-08-10');
+('Ositos de Goma Ácidos', 'Gominolas con forma de osito y pica-pica ácido, saboressurtidos.', 1.50, 120, '2026-03-15', 2),
+('Tableta Chocolate Negro 70%', 'Chocolate negro intenso con 70% de cacao puro.', 2.20,75,'2026-07-30', 1),
+('Chicle Menta Fresca (Paquete)', 'Paquete de chicles sin azúcar sabor menta fresca.',0.80, 200,'2025-12-01', 3),
+('Caramelos de Violeta Artesanos', 'Auténticos caramelos de violeta, receta tradicional.',2.50, 50, '2026-01-20', 4),
+('Nubes de Fresa Gigantes', 'Nubes de azúcar esponjosas con sabor a fresa, tamaño XL.',1.00, 90, '2025-11-10', 5),
+('Piruleta Corazón Fresa', 'Piruleta clásica con forma de corazón y sabor a fresa intensa.',0.60, 150, '2026-05-22', 2),
+('Bombones Surtidos Caja Pequeña', 'Caja con selección de 6 bombones de chocolate con leche, negro y blanco.', 3.00, 40, '2025-10-15', 1),
+('Patatas Fritas Onduladas (Bolsa)', 'Bolsa de patatas fritas con corte ondulado y sal.',1.20, 110, '2025-09-01', 3),
+('Regaliz Rojo Relleno (Tira)', 'Tira de regaliz rojo con relleno cremoso sabor nata.', 0.75,130, '2026-02-28', 5),
+('Pastillas de Menta y Eucalipto', 'Caramelos balsámicos para refrescar el aliento y la garganta.', 1.80, 60, '2026-08-10', 4);
 
 -- Departamentos
 INSERT INTO departamentos (codigoDepartamento, nombre) 
@@ -219,7 +217,7 @@ VALUES
 (30, 'Almacén');
 
 -- Cargos
-INSERT INTO cargos (nombreCargo, descripcionFunciones, salarioBase)
+INSERT INTO cargos (codigoCargo, nombreCargo, descripcionFunciones, salarioBase)
 VALUES
 (101, 'Vendedor/a', 'Atención al cliente, venta de productos, reposición en tienda.', 1250.75),
 (102, 'Cajero/a', 'Cobro de productos, arqueo de caja, atención al cliente.', 1200.50),
@@ -243,31 +241,31 @@ VALUES
 
 -- Ventas
 INSERT INTO ventas (fechaHora, idEmpleado)
-VALUES (1, '2025-05-27 10:15:30', '23456789B'),
-(2, '2025-05-27 11:05:00', '34567890C'),
-(3, '2025-05-27 12:30:15', '67890123F'),
-(4, '2025-05-27 16:45:50', '78901234G'),
-(5, '2025-05-27 18:00:00', '90123456I'),
-(6, '2025-05-26 10:30:00', '01234567J'),
-(7, '2025-05-26 11:20:10', '12345678A'),
-(8, '2025-05-26 14:00:45', '23456789B'),
-(9, '2025-05-26 17:15:20', '34567890C'),
-(10, '2025-05-26 19:05:30', '67890123F'),
-(11, '2025-05-25 10:05:00', '78901234G'),
-(12, '2025-05-25 11:45:15', '90123456I'),
-(13, '2025-05-25 13:50:00', '01234567J'),
-(14, '2025-05-24 16:30:25', '12345678A'),
-(15, '2025-05-24 18:55:40', '23456789B'),
-(16, '2025-04-20 10:10:10', '34567890C'),
-(17, '2025-04-20 12:00:00', '67890123F'),
-(18, '2025-04-21 17:05:00', '78901234G'),
-(19, '2025-04-22 11:33:00', '90123456I'),
-(20, '2025-04-23 18:22:00', '01234567J'),
-(21, '2025-03-15 10:40:00', '12345678A'),
-(22, '2025-03-15 16:15:00', '23456789B'),
-(23, '2025-03-16 11:55:00', '34567890C'),
-(24, '2025-02-28 17:50:00', '67890123F'),
-(25, '2025-02-28 19:10:00', '78901234G');
+VALUES ('2025-05-27 10:15:30', '23456789B'),
+('2025-05-27 11:05:00', '34567890C'),
+('2025-05-27 12:30:15', '67890123F'),
+('2025-05-27 16:45:50', '78901234G'),
+('2025-05-27 18:00:00', '90123456I'),
+('2025-05-26 10:30:00', '01234567J'),
+('2025-05-26 11:20:10', '12345678A'),
+('2025-05-26 14:00:45', '23456789B'),
+('2025-05-26 17:15:20', '34567890C'),
+('2025-05-26 19:05:30', '67890123F'),
+('2025-05-25 10:05:00', '78901234G'),
+('2025-05-25 11:45:15', '90123456I'),
+('2025-05-25 13:50:00', '01234567J'),
+('2025-05-24 16:30:25', '12345678A'),
+('2025-05-24 18:55:40', '23456789B'),
+('2025-04-20 10:10:10', '34567890C'),
+('2025-04-20 12:00:00', '67890123F'),
+('2025-04-21 17:05:00', '78901234G'),
+('2025-04-22 11:33:00', '90123456I'),
+('2025-04-23 18:22:00', '01234567J'),
+('2025-03-15 10:40:00', '12345678A'),
+('2025-03-15 16:15:00', '23456789B'),
+('2025-03-16 11:55:00', '34567890C'),
+('2025-02-28 17:50:00', '67890123F'),
+('2025-02-28 19:10:00', '78901234G');
 
 -- Detalles de venta
 INSERT INTO detalleVenta (idVenta, idGolosina, cantidad, precioUnitarioVenta)
@@ -277,3 +275,124 @@ VALUES (1, 1, 10, 0.10), (1, 2, 2, 0.50);
 SELECT SUM(cantidad * precioUnitarioVenta) AS totalVenta
 FROM detalleVenta
 WHERE idVenta = 1;
+
+
+INSERT INTO tiposConceptoNomina (nombreConcepto, tipoMovimiento, esPorcentaje, porcentajeAplicable)
+VALUES ("Salario Base","Devengo",FALSE,NULL),
+("Horas Extras","Devengo", FALSE, NULL),
+("Retención IRPF","Deduccion",TRUE,12);
+
+-- ============================================================
+-- PARTE 2 – DATOS DE NÓMINA PARA DOS MESES
+-- ============================================================
+ 
+-- Usamos a Ana García (DNI: '12345678A'), que ya tienes en tu tabla.
+-- Su cargo es Jefe/a de Tienda con salarioBase = 1950.00
+ 
+-- ── 2.1 Cabeceras de nómina ──────────────────────────────────
+-- Los totales arrancan en 0, el procedimiento los calculará después.
+ 
+INSERT INTO nominas (idEmpleado, mes, yearCorrespondiente, fechaEmision, fechaPago, totalDevengos, totalDeducciones)
+VALUES
+('12345678A', 'Abril',  2025, '2025-04-30', '2025-05-05', 0.00, 0.00),  -- idNomina = 1
+('12345678A', 'Mayo',   2025, '2025-05-31', '2025-06-05', 0.00, 0.00);  -- idNomina = 2
+ 
+ 
+-- ── 2.2 Detalle de cada nómina ───────────────────────────────
+-- Los idConcepto vienen de tu INSERT de tiposConceptoNomina:
+--   1 = Salario Base   (Devengo, importe fijo)
+--   2 = Horas Extras   (Devengo, cantidad × precioUnitario)
+--   3 = Retención IRPF (Deduccion, 12% sobre la base)
+ 
+-- ABRIL (idNomina = 1)
+INSERT INTO detalleNominaConceptos (idNomina, idConcepto, baseCalculo, cantidad, precioUnitario, importeCalculado)
+VALUES
+(1, 1, NULL,   NULL, NULL,  1950.00),   -- Salario Base
+(1, 2, NULL,   8,    15.00,  120.00),   -- 8 horas extra × 15 € = 120 €
+(1, 3, 2070.00, NULL, NULL,  248.40);   -- IRPF 12% sobre (1950+120) = 248.40 €
+ 
+-- MAYO (idNomina = 2)
+INSERT INTO detalleNominaConceptos (idNomina, idConcepto, baseCalculo, cantidad, precioUnitario, importeCalculado)
+VALUES
+(2, 1, NULL,   NULL, NULL,  1950.00),   -- Salario Base
+(2, 2, NULL,   3,    15.00,   45.00),   -- 3 horas extra × 15 € = 45 €
+(2, 3, 1995.00, NULL, NULL,  239.40);   -- IRPF 12% sobre (1950+45) = 239.40 €
+ 
+-- ============================================================
+-- PARTE 3 – PROCEDIMIENTO Procesar_Nomina_Mensual
+-- ============================================================
+ 
+DELIMITER $$
+ 
+CREATE PROCEDURE Procesar_Nomina_Mensual(
+    IN p_DNI_Empleado   VARCHAR(9),
+    IN p_Mes_Nomina     VARCHAR(30),
+    IN p_Anio_Nomina    INT
+)
+BEGIN
+    DECLARE v_ID_Nomina         INT;
+    DECLARE v_Total_Devengos    DECIMAL(10,2);
+    DECLARE v_Total_Deducciones DECIMAL(10,2);
+    DECLARE v_Salario_Neto      DECIMAL(10,2);
+ 
+    -- 1. Buscar el idNomina que corresponde
+    SELECT idNomina INTO v_ID_Nomina
+    FROM nominas
+    WHERE idEmpleado        = p_DNI_Empleado
+      AND mes               = p_Mes_Nomina
+      AND yearCorrespondiente = p_Anio_Nomina
+    LIMIT 1;
+ 
+    -- 2. Si no existe, mensaje de error y salimos
+    IF v_ID_Nomina IS NULL THEN
+        SELECT 'Error: No se encontró nómina para ese empleado, mes y año.' AS Mensaje;
+    ELSE
+ 
+        -- 3. Sumar los Devengos
+        SELECT COALESCE(SUM(dnc.importeCalculado), 0)
+        INTO v_Total_Devengos
+        FROM detalleNominaConceptos dnc
+        JOIN tiposConceptoNomina tcn ON tcn.idConcepto = dnc.idConcepto
+        WHERE dnc.idNomina = v_ID_Nomina
+          AND tcn.tipoMovimiento = 'Devengo';
+ 
+        -- 4. Sumar las Deducciones
+        SELECT COALESCE(SUM(dnc.importeCalculado), 0)
+        INTO v_Total_Deducciones
+        FROM detalleNominaConceptos dnc
+        JOIN tiposConceptoNomina tcn ON tcn.idConcepto = dnc.idConcepto
+        WHERE dnc.idNomina = v_ID_Nomina
+          AND tcn.tipoMovimiento = 'Deduccion';
+ 
+        -- 5. Calcular neto
+        SET v_Salario_Neto = v_Total_Devengos - v_Total_Deducciones;
+ 
+        -- 6. Actualizar la cabecera de nómina
+        -- (salarioNeto no se toca, es GENERATED y se recalcula solo)
+        UPDATE nominas
+        SET totalDevengos    = v_Total_Devengos,
+            totalDeducciones = v_Total_Deducciones
+        WHERE idNomina = v_ID_Nomina;
+ 
+        -- 7. Confirmación
+        SELECT 'Nómina procesada correctamente' AS Mensaje,
+               v_ID_Nomina       AS idNomina,
+               v_Total_Devengos  AS totalDevengos,
+               v_Total_Deducciones AS totalDeducciones,
+               v_Salario_Neto    AS salarioNeto;
+    END IF;
+ 
+END$$
+ 
+DELIMITER ;
+ 
+ 
+-- ============================================================
+-- PRUEBAS
+-- ============================================================
+
+CALL Procesar_Nomina_Mensual('12345678A', 'Abril', 2025);
+SELECT * FROM nominas WHERE idEmpleado = '12345678A';
+ 
+CALL Procesar_Nomina_Mensual('12345678A', 'Mayo', 2025);
+SELECT * FROM nominas WHERE idEmpleado = '12345678A';
